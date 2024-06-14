@@ -26,7 +26,7 @@ function connectToMQTT() {
     });
 
     client.on('connect', () => {
-        console.log('Connected to MQTT');
+        console.log('Connected to MQTT - Subscribe');
         client.subscribe('medusa/block');
     });
 
@@ -70,7 +70,7 @@ function sendMQTTMessage(char) {
     });
 
     client.on('connect', () => {
-        console.log('Connected to MQTT');
+        console.log('Connected to MQTT - Publish');
         const message = {
             sessionId: sessionId,
             buttonId: char,
