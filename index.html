@@ -1,47 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medusin</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.8/mqtt.min.js"></script>
-    <script src="script.js" defer></script>
+    <title>Medusas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+    <script src="mqtt.min.js" defer></script>
 </head>
 <body>
-    <div class="container text-center">
-        <h1 class="my-4">Medusin</h1>
-        <div id="content">
-            <div class="buttons my-4">
-                <button class="btn jellyfish m-2" onclick="sendMQTT('A')" id="btnA">
-                    <img src="https://www.pexels.com/photo/photo-of-jellyfish-1580232/" alt="Medusa 1"><br>Medusa 1
-                </button>
-                <button class="btn jellyfish m-2" onclick="sendMQTT('B')" id="btnB">
-                    <img src="https://www.pexels.com/photo/pink-jellyfish-3428280/" alt="Medusa 2"><br>Medusa 2
-                </button>
-                <button class="btn jellyfish m-2" onclick="sendMQTT('C')" id="btnC">
-                    <img src="https://www.pexels.com/photo/photography-of-a-jellyfish-939526/" alt="Medusa 3"><br>Medusa 3
-                </button>
-                <button class="btn jellyfish m-2" onclick="sendMQTT('D')" id="btnD">
-                    <img src="https://www.pexels.com/photo/white-jellyfish-847393/" alt="Medusa 4"><br>Medusa 4
-                </button>
-                <button class="btn jellyfish m-2" onclick="sendMQTT('E')" id="btnE">
-                    <img src="https://www.pexels.com/photo/jellyfish-in-water-1590913/" alt="Medusa 5"><br>Medusa 5
-                </button>
-                <button class="btn jellyfish m-2" onclick="sendMQTT('F')" id="btnF">
-                    <img src="https://www.pexels.com/photo/blue-and-pink-jellyfish-2870900/" alt="Medusa 6"><br>Medusa 6
-                </button>
-            </div>
-            <div id="timer" class="my-4"></div>
+    <div class="container">
+        <div class="title">
+            <img src="images/title_image.png" alt="Title">
         </div>
-        <div id="overlay" class="d-none">
-            <div class="overlay-content">
-                <div id="session-expired" class="alert alert-warning">
-                    Su sesión expiró, puede acceder nuevamente en: <span id="cooldown-timer"></span>
-                </div>
-            </div>
+        <div id="timer">Tiempo restante: 5:00</div>
+        <div class="grid-container">
+            <button class="grid-item" onclick="sendMQTTMessage('A')">
+                <img src="images/medusa1.png" alt="Medusa 1">
+                <div class="label">Medusa 1</div>
+            </button>
+            <button class="grid-item" onclick="sendMQTTMessage('B')">
+                <img src="images/medusa2.png" alt="Medusa 2">
+                <div class="label">Medusa 2</div>
+            </button>
+            <button class="grid-item" onclick="sendMQTTMessage('C')">
+                <img src="images/medusa3.png" alt="Medusa 3">
+                <div class="label">Medusa 3</div>
+            </button>
+            <button class="grid-item" onclick="sendMQTTMessage('D')">
+                <img src="images/medusa4.png" alt="Medusa 4">
+                <div class="label">Medusa 4</div>
+            </button>
+            <button class="grid-item" onclick="sendMQTTMessage('E')">
+                <img src="images/medusa5.png" alt="Medusa 5">
+                <div class="label">Medusa 5</div>
+            </button>
+            <button class="grid-item" onclick="sendMQTTMessage('F')">
+                <img src="images/medusa6.png" alt="Medusa 6">
+                <div class="label">Medusa 6</div>
+            </button>
+        </div>
+    </div>
+    <div id="session-expired" class="overlay">
+        <div class="message">
+            <p>Su sesión ha expirado, debe esperar 5 minutos para acceder nuevamente</p>
+            <div id="retry-timer">Tiempo restante: 5:00</div>
         </div>
     </div>
 </body>
 </html>
+
