@@ -72,8 +72,8 @@ window.onload = function() {
 
 function sendMQTTMessage(char) {
     const client = mqtt.connect('wss://b654b56175244212b2de14af672cfc2d.s1.eu.hivemq.cloud:8884/mqtt', {
-        username: 'your_username',
-        password: 'your_password'
+        username: 'medusin',
+        password: 'a1R5dd89'
     });
 
     client.on('connect', () => {
@@ -87,3 +87,4 @@ function sendMQTTMessage(char) {
         console.error('Connection error: ', err);
     });
 }
+
