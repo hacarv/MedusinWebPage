@@ -1,93 +1,35 @@
-let countdownTime = 5 * 60; // 5 minutes
-let retryTime = 5 * 60; // 5 minutes for retry
-let countdownInterval, retryInterval;
+let sessionId, firstAccessDatetime;
 
-function startTimer() {
-    const timer = document.getElementById('timer');
-    countdownInterval = setInterval(() => {
-        const minutes = Math.floor(countdownTime / 60);
-        const seconds = countdownTime % 60;
-        timer.innerHTML = `Tiempo restante: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-        if (countdownTime <= 0) {
-            clearInterval(countdownInterval);
-            showSessionExpired();
-        }
-
-        countdownTime--;
-        localStorage.setItem('countdownTime', countdownTime);
-    }, 1000);
-}
-
-function showSessionExpired() {
-    const overlay = document.getElementById('session-expired');
-    overlay.style.display = 'flex';
-    startRetryTimer();
-}
-
-function startRetryTimer() {
-    const retryTimer = document.getElementById('retry-timer');
-    retryInterval = setInterval(() => {
-        const minutes = Math.floor(retryTime / 60);
-        const seconds = retryTime % 60;
-        retryTimer.innerHTML = `Tiempo restante: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-        if (retryTime <= 0) {
-            clearInterval(retryInterval);
-            resetSession();
-        }
-
-        retryTime--;
-        localStorage.setItem('retryTime', retryTime);
-    }, 1000);
-}
-
-function resetSession() {
-    localStorage.removeItem('countdownTime');
-    localStorage.removeItem('retryTime');
-    location.reload();
-}
-
-function getLocalStorageItem(name) {
-    const value = localStorage.getItem(name);
-    if (value) {
-        return parseInt(value);
+function generateSessionId() {
+    let id = localStorage.getItem('sessionId');
+    if (!id) {
+        id = Date.now().toString(); // Generate session ID based on timestamp if not already set
+        localStorage.setItem('sessionId', id);
+        localStorage.setItem('firstAccessDatetime', new Date().toISOString()); // Store first access datetime
     }
-    return null;
+    return id;
 }
 
 window.onload = function() {
-    const savedCountdownTime = getLocalStorageItem('countdownTime');
-    if (savedCountdownTime !== null) {
-        countdownTime = savedCountdownTime;
-    } else {
-        countdownTime = 5 * 60;
-    }
-
-    if (countdownTime <= 0) {
-        showSessionExpired();
-    } else {
-        startTimer();
-    }
-
-    const savedRetryTime = getLocalStorageItem('retryTime');
-    if (savedRetryTime !== null) {
-        retryTime = savedRetryTime;
-        if (retryTime > 0) {
-            showSessionExpired();
-        }
-    }
+    // Get or generate session ID and first access datetime
+    sessionId = generateSessionId();
+    firstAccessDatetime = localStorage.getItem('firstAccessDatetime');
 };
 
 function sendMQTTMessage(char) {
     const client = mqtt.connect('wss://b654b56175244212b2de14af672cfc2d.s1.eu.hivemq.cloud:8884/mqtt', {
-        username: 'medusin',
-        password: 'a1R5dd89'
+        username: 'your_username',
+        password: 'your_password'
     });
 
     client.on('connect', () => {
         console.log('Connected to MQTT');
-        client.publish('medusa/button', char, () => {
+        const message = {
+            sessionId: sessionId,
+            buttonId: char,
+            firstAccessDatetime: firstAccessDatetime // Include first access datetime
+        };
+        client.publish('medusa/button', JSON.stringify(message), () => {
             client.end();
         });
     });
@@ -96,3 +38,5 @@ function sendMQTTMessage(char) {
         console.error('Connection error: ', err);
     });
 }
+
+
