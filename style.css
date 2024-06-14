@@ -21,3 +21,21 @@ body {
     color: white;
     text-align: center;
 }
+
+.jellyfish {
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.jellyfish img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
