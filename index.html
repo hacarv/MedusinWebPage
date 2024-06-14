@@ -4,38 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medusas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
-    <script src="mqtt.min.js" defer></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div id="timer">Tiempo restante: 5:00</div>
-        <div class="grid-container">
-            <button class="grid-item" onclick="sendMQTTMessage('A')">
-                <img src="images/medusa1.png" alt="Medusa 1">
-                <div class="label">Medusa 1</div>
-            </button>
-            <button class="grid-item" onclick="sendMQTTMessage('B')">
-                <img src="images/medusa2.png" alt="Medusa 2">
-                <div class="label">Medusa 2</div>
-            </button>
-            <button class="grid-item" onclick="sendMQTTMessage('C')">
-                <img src="images/medusa3.png" alt="Medusa 3">
-                <div class="label">Medusa 3</div>
-            </button>
-            <button class="grid-item" onclick="sendMQTTMessage('D')">
-                <img src="images/medusa4.png" alt="Medusa 4">
-                <div class="label">Medusa 4</div>
-            </button>
-            <button class="grid-item" onclick="sendMQTTMessage('E')">
-                <img src="images/medusa5.png" alt="Medusa 5">
-                <div class="label">Medusa 5</div>
-            </button>
-            <button class="grid-item" onclick="sendMQTTMessage('F')">
-                <img src="images/medusa6.png" alt="Medusa 6">
-                <div class="label">Medusa 6</div>
-            </button>
+    <div class="container text-center mt-5">
+        <h1>Control de Medusas</h1>
+        <div id="timer" class="my-3">Tiempo restante: 5:00</div>
+        <div class="row">
+            <div class="col-6 col-md-4 mb-3">
+                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('A')">
+                    <img src="images/medusa1.png" alt="Medusa 1" class="img-fluid">
+                    <div>Medusa 1</div>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('B')">
+                    <img src="images/medusa2.png" alt="Medusa 2" class="img-fluid">
+                    <div>Medusa 2</div>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('C')">
+                    <img src="images/medusa3.png" alt="Medusa 3" class="img-fluid">
+                    <div>Medusa 3</div>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('D')">
+                    <img src="images/medusa4.png" alt="Medusa 4" class="img-fluid">
+                    <div>Medusa 4</div>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('E')">
+                    <img src="images/medusa5.png" alt="Medusa 5" class="img-fluid">
+                    <div>Medusa 5</div>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('F')">
+                    <img src="images/medusa6.png" alt="Medusa 6" class="img-fluid">
+                    <div>Medusa 6</div>
+                </button>
+            </div>
         </div>
     </div>
     <div id="session-expired" class="overlay">
@@ -44,6 +58,9 @@
             <div id="retry-timer">Tiempo restante: 5:00</div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 

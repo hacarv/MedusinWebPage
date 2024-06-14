@@ -9,56 +9,10 @@ body {
     background-size: cover;
 }
 
-.container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 800px;
-}
-
-.title img {
-    width: 80%;
-    max-width: 400px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-    padding: 10px;
-}
-
-.grid-item {
-    position: relative;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 4px;
+.btn-primary {
     background-color: #4CAF50;
-    transition: transform 0.2s;
-}
-
-.grid-item:hover {
-    transform: scale(1.05);
-}
-
-.grid-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.grid-item .label {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-#timer {
-    font-size: 24px;
-    margin: 20px 0;
+    border: none;
+    color: white;
 }
 
 .overlay {
@@ -81,13 +35,4 @@ body {
     text-align: center;
 }
 
-@media (max-width: 600px) {
-    .grid-item .label {
-        font-size: 14px;
-    }
-
-    #timer {
-        font-size: 20px;
-    }
-}
 
