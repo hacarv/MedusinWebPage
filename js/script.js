@@ -11,12 +11,23 @@ function generateSessionId() {
     return id;
 }
 
-window.onload = function() {
-    // Get or generate session ID and first access datetime
-    sessionId = generateSessionId();
-    firstAccessDatetime = localStorage.getItem('firstAccessDatetime');
+function checkPageBlockStatus() {
+    const blockStatus = localStorage.getItem('isPageBlocked');
+    if (blockStatus === 'true') {
+        blockPage();
+    }
+}
 
-    connectToMQTT();
+window.onload = function() {
+     // Get or generate session ID and first access datetime
+     sessionId = generateSessionId();
+     firstAccessDatetime = localStorage.getItem('firstAccessDatetime');
+ 
+     // Check if the page is blocked
+     checkPageBlockStatus();
+ 
+     // Connect to MQTT
+     connectToMQTT();
 };
 
 function connectToMQTT() {
@@ -34,9 +45,9 @@ function connectToMQTT() {
         console.log('Received message:', message.toString());
         const msg = JSON.parse(message.toString());
         if (msg.sessionId === sessionId) {
-            if (msg.status === 'disabled') {
+            if (msg.status === 'd') {
                 blockPage();
-            } else if (msg.status === 'enabled') {
+            } else if (msg.status === 'e') {
                 unblockPage();
             }
         }
@@ -52,6 +63,7 @@ function blockPage() {
         const overlay = document.getElementById('block-overlay');
         overlay.style.display = 'flex';
         isPageBlocked = true;
+        localStorage.setItem('isPageBlocked', 'true');
     }
 }
 
@@ -60,6 +72,7 @@ function unblockPage() {
         const overlay = document.getElementById('block-overlay');
         overlay.style.display = 'none';
         isPageBlocked = false;
+        localStorage.setItem('isPageBlocked', 'false');
     }
 }
 
