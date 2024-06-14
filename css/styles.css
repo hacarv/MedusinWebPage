@@ -10,7 +10,7 @@ body {
 }
 
 .translucent-bg {
-    background-color: rgba(243, 243, 98, 0.7); /* Yellow background with 70% opacity */
+    background-color: rgba(243, 243, 98, 0.5); /* Yellow background with 70% opacity */
     padding: 10px;
     border-radius: 5px;
     display:block;
