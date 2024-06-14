@@ -34,12 +34,18 @@ function startRetryTimer() {
 
         if (retryTime <= 0) {
             clearInterval(retryInterval);
-            location.reload();
+            resetSession();
         }
 
         retryTime--;
         localStorage.setItem('retryTime', retryTime);
     }, 1000);
+}
+
+function resetSession() {
+    localStorage.removeItem('countdownTime');
+    localStorage.removeItem('retryTime');
+    location.reload();
 }
 
 function getLocalStorageItem(name) {
@@ -67,6 +73,9 @@ window.onload = function() {
     const savedRetryTime = getLocalStorageItem('retryTime');
     if (savedRetryTime !== null) {
         retryTime = savedRetryTime;
+        if (retryTime > 0) {
+            showSessionExpired();
+        }
     }
 };
 
@@ -87,4 +96,3 @@ function sendMQTTMessage(char) {
         console.error('Connection error: ', err);
     });
 }
-
