@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medusin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.8/mqtt.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="my-4">Medusin</h1>
+        <div id="content">
+            <div class="buttons my-4">
+                <button class="btn btn-primary m-2" onclick="sendMQTT('A')" id="btnA">A</button>
+                <button class="btn btn-primary m-2" onclick="sendMQTT('B')" id="btnB">B</button>
+                <button class="btn btn-primary m-2" onclick="sendMQTT('C')" id="btnC">C</button>
+                <button class="btn btn-primary m-2" onclick="sendMQTT('D')" id="btnD">D</button>
+                <button class="btn btn-primary m-2" onclick="sendMQTT('E')" id="btnE">E</button>
+                <button class="btn btn-primary m-2" onclick="sendMQTT('F')" id="btnF">F</button>
+            </div>
+            <div id="timer" class="my-4"></div>
+        </div>
+        <div id="overlay" class="d-none">
+            <div class="overlay-content">
+                <div id="session-expired" class="alert alert-warning">
+                    Su sesión expiró, puede acceder nuevamente en: <span id="cooldown-timer"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
