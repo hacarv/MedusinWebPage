@@ -11,45 +11,50 @@
 </head>
 <body>
     <div class="container text-center mt-5">
-        <h1>Control de Medusas</h1>
-        <div id="timer" class="my-3">Tiempo restante: 5:00</div>
+        <div class="translucent-bg">
+            <h1>Control de Medusas</h1>
+        </div>
+        <div id="timer" class="translucent-bg my-3">Tiempo restante: 5:00</div>
         <div class="row">
-            <div class="col-6 col-md-4 mb-3">
-                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('A')">
-                    <img src="images/medusa1.png" alt="Medusa 1" class="img-fluid">
-                    <div>Medusa 1</div>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('A')">
+                    <img src="images/medusa.png" alt="Medusin 1" class="img-fluid">
+                    <div>Medusin 1</div>
                 </button>
             </div>
-            <div class="col-6 col-md-4 mb-3">
-                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('B')">
-                    <img src="images/medusa2.png" alt="Medusa 2" class="img-fluid">
-                    <div>Medusa 2</div>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('B')">
+                    <img src="images/medusa.png" alt="Medusin 2" class="img-fluid">
+                    <div>Medusin 2</div>
                 </button>
             </div>
-            <div class="col-6 col-md-4 mb-3">
-                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('C')">
-                    <img src="images/medusa3.png" alt="Medusa 3" class="img-fluid">
-                    <div>Medusa 3</div>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('C')">
+                    <img src="images/medusa.png" alt="Medusin 3" class="img-fluid">
+                    <div>Medusin 3</div>
                 </button>
             </div>
-            <div class="col-6 col-md-4 mb-3">
-                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('D')">
-                    <img src="images/medusa4.png" alt="Medusa 4" class="img-fluid">
-                    <div>Medusa 4</div>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('D')">
+                    <img src="images/medusa.png" alt="Medusin 4" class="img-fluid">
+                    <div>Medusin 4</div>
                 </button>
             </div>
-            <div class="col-6 col-md-4 mb-3">
-                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('E')">
-                    <img src="images/medusa5.png" alt="Medusa 5" class="img-fluid">
-                    <div>Medusa 5</div>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('E')">
+                    <img src="images/medusa.png" alt="Medusin 5" class="img-fluid">
+                    <div>Medusin 5</div>
                 </button>
             </div>
-            <div class="col-6 col-md-4 mb-3">
-                <button class="btn btn-primary btn-block" onclick="sendMQTTMessage('F')">
-                    <img src="images/medusa6.png" alt="Medusa 6" class="img-fluid">
-                    <div>Medusa 6</div>
+            <div class="col-6 col-md-4 col-lg-3 mb-3">
+                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('F')">
+                    <img src="images/medusa.png" alt="Medusin 6" class="img-fluid">
+                    <div>Medusin 6</div>
                 </button>
             </div>
+        </div>
+        <div class="translucent-bg">
+            <h4>Medusin... Uh ja ja!</h1>
         </div>
     </div>
     <div id="session-expired" class="overlay">
@@ -63,6 +68,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
 
 

@@ -9,10 +9,22 @@ body {
     background-size: cover;
 }
 
-.btn-primary {
+.translucent-bg {
+    background-color: rgba(255, 255, 0, 0.7); /* Yellow background with 70% opacity */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.btn-medusa {
     background-color: #4CAF50;
     border: none;
     color: white;
+    width: 80%; /* Reduce button size by 20% */
+}
+
+.btn-medusa img {
+    width: 100%;
 }
 
 .overlay {
@@ -34,5 +46,6 @@ body {
     border-radius: 8px;
     text-align: center;
 }
+
 
 
