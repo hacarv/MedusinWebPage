@@ -13,7 +13,7 @@ body {
     background-color: rgba(243, 243, 98, 0.7); /* Yellow background with 70% opacity */
     padding: 10px;
     border-radius: 5px;
-    display: inline-block;
+    display:block;
 }
 
 .btn-medusa {
