@@ -76,7 +76,34 @@ function unblockPage() {
     }
 }
 
-function sendMQTTMessage(char) {
+function sendMQTTMessage(e,char) {
+
+// Create span element
+let ripple = document.createElement("span");
+    
+// Add ripple class to span
+ripple.classList.add("ripple");
+
+// Add span to the button
+this.appendChild(ripple);
+
+// Get position of X
+let x = e.clientX - e.currentTarget.offsetLeft;
+
+// Get position of Y
+let y = e.clientY - e.currentTarget.offsetTop;
+
+// Position the span element
+ripple.style.left = `${x}px`;
+ripple.style.top = `${y}px`;
+
+// Remove span after 0.3s
+setTimeout(() => {
+    ripple.remove();
+}, 300);
+
+
+
     const client = mqtt.connect('wss://b654b56175244212b2de14af672cfc2d.s1.eu.hivemq.cloud:8884/mqtt', {
         username: 'medusin',
         password: 'a1R5dd89'
@@ -98,5 +125,6 @@ function sendMQTTMessage(char) {
         console.error('Connection error: ', err);
     });
 }
+
 
 
