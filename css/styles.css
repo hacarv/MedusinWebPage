@@ -1,5 +1,5 @@
 :root {
-  --bottonSize: 150px;
+  --bottonSize: 120px;
 }
 
 body {
@@ -51,7 +51,7 @@ body {
   }
 
   :root {
-    --bottonSize: 100px;
+    --bottonSize: 75px;
   }
 }
 
@@ -75,7 +75,7 @@ body {
 .btn-medusa:hover:after {
   border-color: transparent;
   filter: blur(2px);
-  transform: scale(3);
+  transform: scale(4);
   transition: 1000ms transform ease, 2100ms blur ease, 900ms border-color ease;
 }
 .btn-medusa:hover:after {

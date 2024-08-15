@@ -31,23 +31,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Datos de las medusas
-        const medusas = [
-            { id: 'A', name: 'Medusin 1', image: 'images/medusasf.png' },
-            { id: 'B', name: 'Medusin 2', image: 'images/medusasf.png' },
-            { id: 'C', name: 'Medusin 3', image: 'images/medusasf.png' },
-            { id: 'D', name: 'Medusin 4', image: 'images/medusasf.png' },
-            { id: 'E', name: 'Medusin 5', image: 'images/medusasf.png' },
-            { id: 'F', name: 'Medusin 6', image: 'images/medusasf.png' }
-        ];
-
         // Contenedor de los botones
         const container = document.getElementById('medusa-container');
 
          // Generar 20 botones dinámicamente usando un bucle for
-         for (let i = 1; i <= 10; i++) {
+         for (let i = 1; i <= 20; i++) {
             const div = document.createElement('div');
-            div.className = 'col-6 col-md-4 col-lg-3 mb-3';
             div.innerHTML = `
                 <div class="btn-medusa" onclick="sendMQTTMessage('${String.fromCharCode(64 + i)}')">
                     <img src="images/medusasf.png" alt="Medusin ${i}" class="img-fluid">
