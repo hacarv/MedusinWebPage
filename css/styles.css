@@ -4,12 +4,12 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: url("../images/background_image.png") no-repeat center center fixed;
-  background-size: cover;
+
 }
 
 .translucent-bg {
@@ -82,7 +82,7 @@ h1 {
 .btn-medusa:hover:after {
   border-color: transparent;
   filter: blur(2px);
-  transform: scale(4);
+  transform: scale(3);
   transition: 1000ms transform ease, 2100ms blur ease, 900ms border-color ease;
 }
 .btn-medusa:hover:after {
