@@ -14,39 +14,8 @@
         <div class="translucent-bg">
             <h1>Control de Medusas</h1>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-                <div class="btn-medusa" onclick="sendMQTTMessage('A')">
-                    <img src="images/medusasf.png" alt="Medusin 4" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('B')">
-                    <img src="images/medusasf.png" alt="Medusin 4" class="img-fluid">
-                </button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('C')">
-                    <img src="images/medusasf.png" alt="Medusin 4" class="img-fluid">
-                </button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('D')">
-                    <img src="images/medusasf.png" alt="Medusin 4" class="img-fluid">
-                </button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('E')">
-                    <img src="images/medusa.png" alt="Medusin 5" class="img-fluid">
-                    <div>Medusin 5</div>
-                </button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-3">
-                <button class="btn btn-primary btn-block btn-medusa" onclick="sendMQTTMessage('F')">
-                    <img src="images/medusa.png" alt="Medusin 6" class="img-fluid">
-                    <div>Medusin 6</div>
-                </button>
-            </div>
+        <div id="medusa-container" class="row justify-content-center">
+            <!-- Los botones se generarán aquí -->
         </div>
     </div>
 
@@ -61,5 +30,31 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Datos de las medusas
+        const medusas = [
+            { id: 'A', name: 'Medusin 1', image: 'images/medusasf.png' },
+            { id: 'B', name: 'Medusin 2', image: 'images/medusasf.png' },
+            { id: 'C', name: 'Medusin 3', image: 'images/medusasf.png' },
+            { id: 'D', name: 'Medusin 4', image: 'images/medusasf.png' },
+            { id: 'E', name: 'Medusin 5', image: 'images/medusasf.png' },
+            { id: 'F', name: 'Medusin 6', image: 'images/medusasf.png' }
+        ];
+
+        // Contenedor de los botones
+        const container = document.getElementById('medusa-container');
+
+         // Generar 20 botones dinámicamente usando un bucle for
+         for (let i = 1; i <= 10; i++) {
+            const div = document.createElement('div');
+            div.className = 'col-6 col-md-4 col-lg-3 mb-3';
+            div.innerHTML = `
+                <div class="btn-medusa" onclick="sendMQTTMessage('${String.fromCharCode(64 + i)}')">
+                    <img src="images/medusasf.png" alt="Medusin ${i}" class="img-fluid">
+                </div>
+            `;
+            container.appendChild(div);
+        }
+    </script>
 </body>
 </html>

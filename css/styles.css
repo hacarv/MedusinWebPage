@@ -1,3 +1,7 @@
+:root {
+    --bottonSize: 150px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -20,14 +24,25 @@ body {
     border: none;
     border-radius: 100%;
     box-shadow: 10px 10px 33px #403A3E;
-    width: 100%;
-    height: 100%;
+    width: var(--bottonSize);
+    height: var(--bottonSize);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+margin: 20px;
 }
+
+@media only screen and (max-width:480px) { 
+    .bt {
+        margin: 10px;
+    }
+    
+    :root {
+        --bottonSize: 100px;
+    }
+    
+  }
 
 .btn-medusa img {
     height: 100%;
@@ -36,8 +51,8 @@ body {
 .btn-medusa:before, .btn-medusa:after {
     content: "";
     position: absolute;
-    width: 90%;
-    height: 100%;
+    width: var(--bottonSize);
+    height: var(--bottonSize);
     border-radius: 50%;
     border: 2px solid rgba(195, 233, 24, 0.897);
     filter: blur(0);
