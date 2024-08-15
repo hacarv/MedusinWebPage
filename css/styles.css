@@ -1,101 +1,112 @@
 :root {
-    --bottonSize: 150px;
+  --bottonSize: 150px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('../images/background_image.png') no-repeat center center fixed;
-    background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("../images/background_image.png") no-repeat center center
+    fixed;
+  background-size: cover;
 }
 
 .translucent-bg {
-    background-color: rgba(255, 255, 0, 0.5); /* Yellow background with 50% opacity */
-    padding: 10px;
-    border-radius: 5px;
-    display: inline-block;
+  background-color: rgba(
+    255,
+    255,
+    0,
+    0.5
+  ); /* Yellow background with 50% opacity */
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
 }
 
 .btn-medusa {
-    border: none;
-    border-radius: 100%;
-    box-shadow: 10px 10px 33px #403A3E;
-    width: var(--bottonSize);
-    height: var(--bottonSize);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-margin: 20px;
+  border: none;
+  border-radius: 100%;
+  box-shadow: 10px 10px 33px #403a3e;
+  width: var(--bottonSize);
+  height: var(--bottonSize);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave para la animación */
 }
 
-@media only screen and (max-width:480px) { 
-    .bt {
-        margin: 10px;
-    }
-    
-    :root {
-        --bottonSize: 100px;
-    }
-    
+.btn-medusa:active {
+  transform: scale(0.9); /* Reducir ligeramente el tamaño al presionar */
+  box-shadow: 5px 5px 20px #2c2c2e; /* Reducir la sombra para simular un efecto de presionar */
+}
+
+@media only screen and (max-width: 480px) {
+  .bt {
+    margin: 10px;
   }
+
+  :root {
+    --bottonSize: 100px;
+  }
+}
 
 .btn-medusa img {
-    height: 100%;
+  height: 100%;
 }
 
-.btn-medusa:before, .btn-medusa:after {
-    content: "";
-    position: absolute;
-    width: var(--bottonSize);
-    height: var(--bottonSize);
-    border-radius: 50%;
-    border: 2px solid rgba(15, 15, 15, 0.897);
-    filter: blur(0);
-    transform-origin: 50%;
-    z-index: -1;
-  }
-  .btn-medusa:hover:before, .btn-medusa:hover:after {
-    border-color: transparent;
-    filter: blur(2px);
-    transform: scale(3);
-    transition: 1000ms transform ease, 2100ms blur ease, 900ms border-color ease;
-  }
-  .btn-medusa:hover:after {
-    transition-delay: 100ms;
-  }
+.btn-medusa:before,
+.btn-medusa:after {
+  content: "";
+  position: absolute;
+  width: var(--bottonSize);
+  height: var(--bottonSize);
+  border-radius: 50%;
+  border: 2px solid rgba(15, 15, 15, 0.897);
+  filter: blur(0);
+  transform-origin: 50%;
+  z-index: -1;
+}
+.btn-medusa:hover:before,
+.btn-medusa:hover:after {
+  border-color: transparent;
+  filter: blur(2px);
+  transform: scale(3);
+  transition: 1000ms transform ease, 2100ms blur ease, 900ms border-color ease;
+}
+.btn-medusa:hover:after {
+  transition-delay: 100ms;
+}
 
 .message {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
 .overlay-content {
-    text-align: center;
-    background-color: rgb(41, 41, 41);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background-color: rgb(41, 41, 41);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
-
