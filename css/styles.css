@@ -8,22 +8,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
   background: url("../images/background_image.png") no-repeat center center
     fixed;
   background-size: cover;
+  padding: 10px; /* Añadir padding para asegurar que no haya contenido fuera de la pantalla */
 }
 
 .translucent-bg {
-  background-color: rgba(
-    255,
-    255,
-    0,
-    0.5
-  ); /* Yellow background with 50% opacity */
-  padding: 10px;
-  border-radius: 5px;
-  display: inline-block;
+    background-color: rgba(255, 255, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 100%; /* Asegura que el fondo translúcido no se desborde en móviles */
+}
+
+.container {
+    max-width: 100%; /* Asegura que el contenedor no se desborde */
+    margin: 0; /* Eliminar márgenes adicionales que podrían causar problemas */
+}
+
+h1 {
+    font-size: 2rem; /* Ajustar el tamaño del texto para pantallas pequeñas */
 }
 
 .btn-medusa {
@@ -53,6 +59,10 @@ body {
   :root {
     --bottonSize: 75px;
   }
+
+  h1 {
+    font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
+}
 }
 
 .btn-medusa img {
