@@ -17,18 +17,42 @@ body {
 }
 
 .btn-medusa {
-    background-color: #4CAF50;
     border: none;
-    color: white;
+    border-radius: 100%;
+    box-shadow: 10px 10px 33px #403A3E;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
 }
 
 .btn-medusa img {
-    width: 70%; /* Image size is 70% of button width */
+    height: 100%;
 }
+
+.btn-medusa:before, .btn-medusa:after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(195, 233, 24, 0.897);
+    filter: blur(0);
+    transform-origin: 50%;
+    z-index: -1;
+  }
+  .btn-medusa:hover:before, .btn-medusa:hover:after {
+    border-color: transparent;
+    filter: blur(2px);
+    transform: scale(3);
+    transition: 1000ms transform ease, 2100ms blur ease, 900ms border-color ease;
+  }
+  .btn-medusa:hover:after {
+    transition-delay: 100ms;
+  }
 
 .message {
     background: rgba(0, 0, 0, 0.7);
