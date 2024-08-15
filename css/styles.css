@@ -61,7 +61,7 @@ h1 {
   }
 
   h1 {
-    font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
+    font-size: 1rem; /* Reduce el tamaño del título en pantallas pequeñas */
 }
 }
 
