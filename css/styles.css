@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   background: url("../images/background_image.png") no-repeat center center fixed;
-  background: cover;
+  background-size: cover;
 
 }
 
