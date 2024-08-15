@@ -8,11 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background: url("../images/background_image.png") no-repeat center center
-    fixed;
+  background: url("../images/background_image.png") no-repeat center center;
   background-size: cover;
-  padding: 10px; /* Añadir padding para asegurar que no haya contenido fuera de la pantalla */
 }
 
 .translucent-bg {
