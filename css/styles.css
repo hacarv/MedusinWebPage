@@ -4,11 +4,12 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: 30px;
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: url("../images/background_image.png") no-repeat center center fixed;
+  background: cover;
 
 }
 
@@ -54,7 +55,7 @@ h1 {
   }
 
   :root {
-    --bottonSize: 75px;
+    --bottonSize: 100px;
   }
 
   h1 {
