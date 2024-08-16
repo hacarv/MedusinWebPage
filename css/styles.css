@@ -8,7 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../images/background_image.png") no-repeat center center fixed;
+  /* background: url("../images/background_image.png") no-repeat center center fixed; */
+  background-color: blue;
   background-size: cover;
 
 }
@@ -71,14 +72,15 @@ h1 {
 .btn-medusa:after {
   content: "";
   position: absolute;
-  width: var(--bottonSize);
-  height: var(--bottonSize);
+  width:var(--bottonSize);
+  height:var(--bottonSize);
   border-radius: 50%;
-  border: 2px solid rgba(15, 15, 15, 0.897);
+  border: 2px solid rgb(255, 255, 255,0.2);
   filter: blur(0);
   transform-origin: 50%;
   z-index: -1;
 }
+
 .btn-medusa:hover:before,
 .btn-medusa:hover:after {
   border-color: transparent;
@@ -86,6 +88,7 @@ h1 {
   transform: scale(3);
   transition: 1000ms transform ease, 2100ms blur ease, 900ms border-color ease;
 }
+
 .btn-medusa:hover:after {
   transition-delay: 100ms;
 }
