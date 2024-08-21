@@ -12,7 +12,7 @@
 <body>
     <div class="container text-center mt-5">
         <!-- <div class="translucent-bg">
-            <h1>Control de Medusas</h1>
+            <h1>Juegue con las medusas</h1>
         </div> -->
         <div id="medusa-container" class="row justify-content-center">
             <!-- Los botones se generarán aquí -->
@@ -35,11 +35,11 @@
         const container = document.getElementById('medusa-container');
 
          // Generar 20 botones dinámicamente usando un bucle for
-         for (let i = 1; i <= 20; i++) {
+         for (let i = 1; i <= 9; i++) {
             const div = document.createElement('div');
             div.innerHTML = `
                 <div class="btn-medusa" onclick="sendMQTTMessage('${String.fromCharCode(64 + i)}')">
-                    <img src="images/medusasf.png" alt="Medusin ${i}" class="img-fluid">
+                    <img src="images/IconoMedusa.png" alt="Medusin ${i}" class="img-fluid">
                 </div>
             `;
             container.appendChild(div);
